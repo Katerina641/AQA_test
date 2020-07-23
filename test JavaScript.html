@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+
+<body>
+
+  <script>
+ function addNumber() {
+	let number = prompt('Введите число');
+	
+	if (number <7){	
+		alert('Число меньше 7');
+	}
+	else if(number==7){
+		alert ('число равно 7')
+	}
+	else {
+	 alert ('Привет')
+	}
+}
+function addName() {	
+		
+	let accessAllowed;
+	let name = prompt('Введите имя');
+
+	if (name == 'Вячеслав') {
+		alert( 'Привет, Вячеслав' );
+	} 
+	else {
+		alert( 'Нет такого имени' );
+	}
+}
+
+function addCount() {
+          
+	var array = [];                               
+
+	for (var i = 0; i < 5; i++) {              
+		array.push(prompt('Введите число ' + (i+1))); 
+	}
+ 	document.writeln("Числа кратные трём <br \/>");
+	
+	for (i = 0; i < array.length; i++) {
+		if (array[i]%3 == 0&&array[i]!=0) 
+			document.writeln(array[i] + "  <br \/>"); 
+	}
+}
+function checkBrackets(str){
+	var par = 0;
+    var col = 0;
+    var cha = 0;
+
+    var count_1 = 0;
+    var count_2 = 0;
+    var count_3 = 0;
+    var count_4 = 0;
+    var count_5 = 0;
+    var count_6 = 0;
+    
+    for(var i in str){   
+        if(str[i] == '{'){
+		cha += 1;
+            count_1++;
+        } else if(str[i] == '}') {
+            cha -= 1;
+            count_2++;
+        }  
+        
+		if(str[i] == '['){
+		col += 1;
+            count_3++;
+        } else if(str[i] == ']') {
+            col -= 1;
+            count_4++;
+        }  
+		
+		if(str[i] == '('){
+		par += 1;
+            count_5++;
+        } else if(str[i] == ')') {
+            par -= 1;
+            count_6++;
+        }  
+		
+    }
+	if (cha < 0 || col < 0 || par < 0)
+       document.writeln('Задана не правильная последовательность [((())()(())]] <br \/>');
+    else if (cha != 0 || col != 0 || par != 0)
+        document.writeln('Задана не правильная последовательность [((())()(())]] <br \/>');
+    else
+        document.writeln('правильная ');
+    if (count_3 != count_4 && count_3 > count_4)
+        document.writeln('<br \/>необходимо добавить ] <br \/>');
+    else
+        document.writeln('<br \/>необходимо добавить [<br \/>');
+
+    if (count_1 != count_2 && count_1 > count_2)
+        document.writeln('<br \/>необходимо добавить  } <br \/>');
+    else if (count_1 == count_2 && count_1 < count_2)
+        document.writeln('<br \/>необходимо добавить { <br \/>');
+    else
+		document.writeln('<br \/>таких символов вообще нет в данной последоватеельности {} <br \/>');
+    
+	if (count_5 != count_6 && count_5 > count_6)
+        document.writeln('<br \/>необходимо добавить ) <br \/>');
+    else if (count_5 == count_6 && count_5 < count_6)
+        document.writeln('<br \/>таких символов вообще нет в данной последоватеельности () <br \/>');
+    else
+        document.writeln('<br \/>необходимо добавить ( <br \/>');
+    
+}
+	
+	addNumber();
+	addName();
+	addCount();
+	document.writeln(checkBrackets('[((())()(())]]')); 
+		
+	
+  </script>
+
+  
+
+</body>
+
+</html>
